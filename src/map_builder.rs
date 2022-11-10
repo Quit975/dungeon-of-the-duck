@@ -19,6 +19,18 @@ impl MapBuilder {
         mb.build_random_rooms(rng);
         mb.build_corridors(rng);
         mb.player_start = mb.rooms[0].center();
+        mb.map.tiles[0] = TileType::Letter('S');
+        mb.map.tiles[1] = TileType::Letter('c');
+        mb.map.tiles[2] = TileType::Letter('h');
+        mb.map.tiles[3] = TileType::Letter('e');
+        mb.map.tiles[4] = TileType::Letter('h');
+        mb.map.tiles[5] = TileType::Letter('e');
+        mb.map.tiles[6] = TileType::Letter('r');
+        mb.map.tiles[7] = TileType::Letter('a');
+        mb.map.tiles[8] = TileType::Letter('z');
+        mb.map.tiles[9] = TileType::Letter('a');
+        mb.map.tiles[10] = TileType::Letter('d');
+        mb.map.tiles[11] = TileType::Letter('e');
         mb
     }
 

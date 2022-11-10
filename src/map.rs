@@ -5,6 +5,7 @@ const NUM_TILES : usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
 pub enum TileType {
     Wall,
     Floor,
+    Letter(char)
 }
 
 pub struct Map {
@@ -56,6 +57,14 @@ impl Map {
                                 DARKGREEN, 
                                 BLACK, 
                                 to_cp437('#'));
+                        }
+                        TileType::Letter(c) => {
+                            ctx.set(
+                                x - camera.left_x, 
+                                y - camera.top_y, 
+                                DARKOLIVEGREEN, 
+                                BLACK, 
+                                to_cp437(c));
                         }
                     }
                 }
