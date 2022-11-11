@@ -5,7 +5,6 @@ const NUM_TILES : usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
 pub enum TileType {
     Wall,
     Floor,
-    Letter(char)
 }
 
 pub struct Map {
@@ -32,44 +31,6 @@ impl Map {
             None
         } else {
             Some(map_idx(point.x, point.y))
-        }
-    }
-
-    pub fn render(&self, ctx : &mut BTerm, camera : &Camera) {
-        ctx.set_active_console(0);
-        for y in camera.top_y..camera.bottom_y {
-            for x in camera.left_x..camera.right_x {
-                if self.in_bounds(Point::new(x, y)) {
-                    let idx = map_idx(x, y);
-                    match self.tiles[idx] {
-                        TileType::Floor => {
-                            ctx.set(
-                                x - camera.left_x,
-                                y - camera.top_y,
-                                DARKGREY,
-                                BLACK,
-                                to_cp437(' '));
-                        }
-                        TileType::Wall => {
-                            ctx.set(
-                                x - camera.left_x, 
-                                y - camera.top_y, 
-                                DARKGREEN, 
-                                BLACK, 
-                                to_cp437('#'));
-                        }
-                        TileType::Letter(c) => {
-                            ctx.set(
-                                x - camera.left_x, 
-                                y - camera.top_y, 
-                                DARKOLIVEGREEN, 
-                                BLACK, 
-                                to_cp437(c));
-                        }
-                    }
-                }
-                
-            }
         }
     }
 }
