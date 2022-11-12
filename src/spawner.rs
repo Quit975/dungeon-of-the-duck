@@ -28,6 +28,7 @@ pub fn spawn_monster(ecs : &mut World, enemy_type : EnemyType, pos : Point) {
                 })
             },
             enemy_type,
+            RandomMovement
         )
     );
 }

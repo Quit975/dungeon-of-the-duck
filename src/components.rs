@@ -18,3 +18,6 @@ pub enum EnemyType {
     Troll,
     Bat
 }
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RandomMovement;
