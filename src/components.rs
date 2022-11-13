@@ -21,3 +21,9 @@ pub enum EnemyType {
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RandomMovement;
+
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MovementIntent {
+    pub entity : Entity,
+    pub destination : Point
+}
